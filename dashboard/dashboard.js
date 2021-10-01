@@ -4,6 +4,12 @@ function updateTime(){
   document.getElementById("time").innerHTML = today.toLocaleDateString("en-US", options);
 }
 
+function addLOGCard(progress, date, title, sub, note){
+
+  document.getElementById("loglogs").innerHTML += "";
+
+}
+
 updateTime();
 
 document.addEventListener('DOMContentLoaded', function () {

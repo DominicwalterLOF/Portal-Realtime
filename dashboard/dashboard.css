@@ -542,7 +542,7 @@ button, a {
   color: var(--main-color);
 }
 .project-box-header span {
-  color: #4A4A4A;
+  color: #ffffff;
   opacity: 0.7;
   font-size: 14px;
   line-height: 16px;
@@ -557,6 +557,7 @@ button, a {
 .project-box-wrapper {
   padding: 8px;
   transition: 0.2s;
+  color:white;
 }
 
 .project-btn-more {
@@ -862,4 +863,8 @@ button, a {
     right: 2px;
     top: 10px;
   }
+}
+
+.box-progress{
+  width: 60%; background-color: rgb(191, 191, 191)
 }
