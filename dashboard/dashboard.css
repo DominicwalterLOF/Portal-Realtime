@@ -472,6 +472,11 @@ button, a {
 .project-boxes::-webkit-scrollbar {
   display: none;
 }
+
+.messages-section::-webkit-scrollbar {
+  display: none;
+}
+
 .project-boxes.jsGridView {
   display: flex;
   flex-wrap: wrap;
