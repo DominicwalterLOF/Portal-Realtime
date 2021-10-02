@@ -3,6 +3,9 @@
     <head>
         <title>Lunarty/Timeline</title>
         <link rel="stylesheet" href="styles.css">
+        <script src='https://cdn.firebase.com/js/client/2.2.1/firebase-app.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
     </head>
     <body>
         <header>
@@ -11,48 +14,67 @@
         <div class="container">
             <div class="split left">
               <h2>Broader Scientific<br>Community</h1>
-              <a href="#" class="button" id='btn1'>Add Node</a>
+              <a href="#" onclick="openForm2()" class="button2" id='btn1'>Add Node</a>
+              <!------------------------------------------------------------------------------------------>
+              <div class="form-popup2" id="myForm2">
+                <form class="form-container2">
+                  <label for="fname">Name of the mission:</label><br>
+                  <input type="text" id="mname1" name="mname" ><br>
+                  <label for="fname">Name of the Author</label><br>
+                  <input type="text" id="aname1" name="aname" ><br>
+                  <label for="fname">Name of log</label><br>
+                  <input type="text" id="log1" name="log" ><br>
+                  Consol Log:<br>
+                  <label for="fname" style="width: 300px;">Text:</label><br>
+                  <input type="text" id="textlog1" name="textlog"><br>
+                  <input  type="button" value="Uplode audio"><br>
+                  <input  type="button" value="Uplode picture"><br>
+                  <input  type="button" value="Uplode video"><br>      
+                  <br>
+                  <input type="submit" id="submit" value="Submit" onclick="writedata2()">
+                  <input type="reset">
+                  <button type="button" class="btn cancel" onclick="closeForm2()">Close</button>
+                </form>
+             
+          </div>
+              <!------------------------------------------------------------------------------------------>
               
             </div>
             <div class="split right">
               <h2>NASA Flight<br>Controllers</h1>
                 
-
 <!------------------------------------------------------------------------------------------>
 
   
 <!-- The Timeline -->
 
-<ul class="timeline">
+<ul class="timeline" id="timeline">
 
 	<!-- Item 1 -->
 	<li>
 		<div class="direction-r">
 			<div class="flag-wrapper">
-				<span class="flag">Time to go to work</span>
-				<span class="time-wrapper"><span class="time">2013</span></span>
+				<span class="flag" id="flag">LOG</span>
+				<span class="time-wrapper"><span class="time">author</span>
+                <span class="time-wrapper"><span class="time">Date and Time</span></span>
 			</div>
 			<div class="desc">
                 <!----------------------------------------------------------->
                 <div class="section full-height">
                     <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
                     <label for="modal-btn">
-                My experience!
+                Tagline!
                 <i class="uil uil-expand-arrows"></i></label> 		
       	<div class="modal">		
 	      	<div class="modal-wrap">	
 					
-	      		<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>	          		
+	      		<p id="p-wrap">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>	          		
 	      	</div>			          		
       	</div>	
-
-          
                 <!---------------------------------------->
             </div>
 		</div>
 	</li>
-  
-    
   
 </ul>
 
@@ -67,8 +89,10 @@
             <input type="text" id="mname" name="mname" ><br>
             <label for="fname">Name of the Author</label><br>
             <input type="text" id="aname" name="aname" ><br>
+            <label for="fname">Name of log</label><br>
+            <input type="text" id="log" name="log" ><br>
             Consol Log:<br>
-            <label for="fname">Text:</label><br>
+            <label for="fname" style="width: 300px;">Text:</label><br>
             <input type="text" id="textlog" name="textlog"><br>
             <input  type="button" value="Uplode audio"><br>
             <input  type="button" value="Uplode picture"><br>
@@ -76,7 +100,7 @@
 
 
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" id="submit" value="Submit" onclick="writedata()">
             <input type="reset">
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
           </form>
@@ -86,5 +110,11 @@
             </div>
           </div>
     </body>
-    <script src="javascript.js" ></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
+  
+<script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script> 
+<script src="javascript.js" ></script>
+
 </html>
