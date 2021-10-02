@@ -103,9 +103,6 @@
 									<li>
 										<a href="#">Import</a>
 									</li>
-									<li>
-										<a href="#">Credit cart</a>
-									</li>
 								</ul>
 							</div>
 						</li>
@@ -126,10 +123,10 @@
 										<a href="#">Tables</a>
 									</li>
 									<li>
-										<a href="#">Icons</a>
+										<a href="#">Forms</a>
 									</li>
 									<li>
-										<a href="#">Forms</a>
+										<a href="#">Others</a>
 									</li>
 								</ul>
 							</div>
@@ -142,16 +139,16 @@
 							<div class="sidebar-submenu">
 								<ul>
 									<li>
-										<a href="#">Pie chart</a>
+										<a href="#">Real-time</a>
 									</li>
 									<li>
-										<a href="#">Line chart</a>
+										<a href="#">Data</a>
 									</li>
 									<li>
-										<a href="#">Bar chart</a>
+										<a href="#">Timeline charts</a>
 									</li>
 									<li>
-										<a href="#">Histogram</a>
+										<a href="#">Others</a>
 									</li>
 								</ul>
 							</div>
@@ -164,10 +161,10 @@
 							<div class="sidebar-submenu">
 								<ul>
 									<li>
-										<a href="#">Google maps</a>
+										<a href="#">Trajectory maps</a>
 									</li>
 									<li>
-										<a href="#">Open street map</a>
+										<a href="#">others</a>
 									</li>
 								</ul>
 							</div>
@@ -202,11 +199,11 @@
 			<div class="sidebar-footer">
 				<a href="#">
 					<i class="fa fa-bell"></i>
-					<span class="badge badge-pill badge-warning notification">3</span>
+					<!--<span class="badge badge-pill badge-warning notification">3</span>-->
 				</a>
 				<a href="#">
 					<i class="fa fa-envelope"></i>
-					<span class="badge badge-pill badge-success notification">7</span>
+					<!--<span class="badge badge-pill badge-success notification">7</span>-->
 				</a>
 				<a href="#">
 					<i class="fa fa-cog"></i>
@@ -281,6 +278,38 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js"></script>
+	<script>
+		$(".sidebar-dropdown > a").click(function() {
+    $(".sidebar-submenu").slideUp(200);
+    if (
+      $(this)
+        .parent()
+        .hasClass("active")
+    ) {
+      $(".sidebar-dropdown").removeClass("active");
+      $(this)
+        .parent()
+        .removeClass("active");
+    } else {
+      $(".sidebar-dropdown").removeClass("active");
+      $(this)
+        .next(".sidebar-submenu")
+        .slideDown(200);
+      $(this)
+        .parent()
+        .addClass("active");
+    }
+  });
+  
+  $("#close-sidebar").click(function() {
+    $(".page-wrapper").removeClass("toggled");
+  });
+  $("#show-sidebar").click(function() {
+    $(".page-wrapper").addClass("toggled");
+  });
+  
+  
+	</script>
 </body>
 
 </html>
