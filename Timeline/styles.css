@@ -10,6 +10,12 @@
 
 
 
+
+
+
+
+
+
 :root {
   --container-bg-color: rgba(51, 51, 51, 0);
   --left-bg-color: rgba(40, 37, 56, 0);
@@ -75,8 +81,7 @@ h2,h1 {
 
 .button {
   display: block;
-  left: 80%;
-  top: 45%;
+  
   height: 1rem;
   padding: 1rem;
   width: 8rem;
@@ -91,6 +96,7 @@ h2,h1 {
   cursor: pointer;
   position: fixed;
   width: 10%;
+  right: 0%;
   bottom: 10px;
 }
 
@@ -778,5 +784,6 @@ html {
 
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
+
 
 
