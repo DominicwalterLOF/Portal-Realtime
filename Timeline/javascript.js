@@ -29,21 +29,27 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-function writedata (dateTime){
+function writedata (){
+//-----------------------------------
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+//----------------------------------
 
   var mname=document.getElementById("mname").value;
   var aname=document.getElementById("aname").value;
   var log=document.getElementById("log").value;
   var textlog=document.getElementById("textlog").value;
 
-  const dp=firebase.database().ref("NASA").set({
+  const dp=firebase.database().ref("NASA/log"+dateTime).set({
     date_time:dateTime,
     Mission_name:mname,
     author:aname,
     Tagline: log,
     Log_info:textlog
 
-  });
+  });location.reload();
 }
 
 
@@ -74,11 +80,34 @@ function readData(key) {
 }
 
 //-----------------------------------------------------------
-function read(){
-  firebase.database().ref('NASA').on('value',(snap)=>{
-  console.log(snap.val());
-})
+function read(){  
+
+
+  firebase.database().ref('NASA/').on('value',(snap)=>{
+  display(snap.val());;})
+  }
+
+  function display(value){
+    l=[];
+    console.log(value);
+    console.log("printingggg");
+    for (const item in value){
+      var innerdata=value[item];
+        l=[];
+        for (const items2 in innerdata){
+          l.push(innerdata[items2])
+         
+        
+  
+      }  
+      
+  
+      addNode(l[2], l[4], l[3], l[0]);
+    }
+
 }
+
+
 //-----------------------------------------------------------
 
 // Adding Dynamic Nodes -------------------------------------
@@ -112,5 +141,5 @@ var dateTime = date+' '+time;
   console.log("Added");
   closeForm();
   read();
-  addNode(document.getElementById("log").value, dateTime, document.getElementById("aname").value, document.getElementById("textlog").value);
+  
 }

@@ -380,11 +380,8 @@ body {
     left: 0px;
   }
   
-  @media screen and (min-width: 768px) {
-    .page-wrapper.toggled .page-content {
-      padding-left: 300px;
-    }
-  }
+
+  
   /*----------------show sidebar button----------------*/
   #show-sidebar {
     position: fixed;
@@ -649,14 +646,15 @@ body {
   /*--------------------------page-content-----------------------------*/
   
   .page-wrapper .page-content {
-    display: inline-block;
+    display: block;
     width: 100%;
     padding-left: 0px;
     padding-top: 20px;
+ 
   }
   
   .page-wrapper .page-content > div {
-    padding: 20px 40px;
+    padding: 20px ;
   }
   
   .page-wrapper .page-content {
