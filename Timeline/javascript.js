@@ -1,27 +1,7 @@
 
+var count=0;
 
 
-
-
-const left = document.querySelector(".left");
-const right = document.querySelector(".right");
-const container = document.querySelector(".container");
-
-left.addEventListener("mouseenter", () => {
-  container.classList.add("hover-left");
-});
-
-left.addEventListener("mouseleave", () => {
-  container.classList.remove("hover-left");
-});
-
-right.addEventListener("mouseenter", () => {
-  container.classList.add("hover-right");
-});
-
-right.addEventListener("mouseleave", () => {
-  container.classList.remove("hover-right");
-});
 //-----------------------------------------------------------
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -30,13 +10,7 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
-function openForm2() {
-  document.getElementById("myForm2").style.display = "block";
-}
-function closeForm2() {
-  document.getElementById("myForm2").style.display = "none";
-}
-  
+
 
 //-----------------------------------------------------------
 
@@ -55,14 +29,14 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-function writedata (){
+function writedata (dateTime){
 
   var mname=document.getElementById("mname").value;
   var aname=document.getElementById("aname").value;
   var log=document.getElementById("log").value;
   var textlog=document.getElementById("textlog").value;
 
-  const dp=firebase.database().ref("FC").set({
+  const dp=firebase.database().ref("NASA_"+ dateTime).set({
     Mission_name:mname,
     author:aname,
     Tagline: log,
@@ -72,21 +46,7 @@ function writedata (){
 }
 
 
-function writedata2 (){
-  var keyvalue=0;
-  var mname=document.getElementById("mname1").value;
-  var aname=document.getElementById("aname1").value;
-  var log=document.getElementById("log1").value;
-  var textlog=document.getElementById("textlog1").value;
 
-  const dp2=firebase.database().ref("BSC").set({
-    Mission_name:mname,
-    author:aname,
-    Tagline: log,
-    Log_info:textlog
-
-  });
-}
 
 //-----------------------------------------------------------
 
@@ -107,6 +67,7 @@ function readData(key) {
   urlRef.on("value", function (snapshot) {
 
   return snapshot.val();
+  console.log();
 
   });
 }
@@ -116,13 +77,32 @@ function readData(key) {
 // Adding Dynamic Nodes -------------------------------------
 
 function addNode(log, time, author, detail){
-
-  DOMNode = '<li><div class="direction-r"><div class="flag-wrapper"><span class="flag" id="flag">' + log + '</span><span class="time-wrapper"><span class="time">' + author + '</span><span class="time-wrapper"><span class="time">' + time + '</span></span></div><div class="desc"><div class="section full-height"><input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" /><label for="modal-btn">Details<i class="uil uil-expand-arrows"></i></label><div class="modal"><div class="modal-wrap"><p id="p-wrap">' + detail + '</p></div></div></div></div></li>';
+  count++;
+  if (count%2==0){
+    DOMNode = '<li><div class="direction-r"><div class="flag-wrapper"><span class="flag" id="flag"><img src="https://freedesignfile.com/upload/2017/08/spaceship-icon-vector.png"alt="profile image">'
+     + log + '</span></span><span class="time-wrapper"><span class="time">' + author + '</span><span class="time-wrapper"><span class="time">' + time + '</span></span></div><div class="desc"><div class="section full-height"><input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" /><label for="modal-btn">Details<i class="uil uil-expand-arrows"></i></label><div class="modal"><div class="modal-wrap"><p id="p-wrap">' + detail + '</p></div></div></div></div></li>';
   document.getElementById("timeline").innerHTML = DOMNode + document.getElementById("timeline").innerHTML;
+  }
+  else {
+    DOMNode = '<li><div class="direction-l"><div class="flag-wrapper"><span class="flag" id="flag"><img src="https://icon-library.com/images/icon-earth/icon-earth-14.jpg"alt="profile image">' 
+    + log + '</span></span><span class="time-wrapper"><span class="time">' + author + '</span><span class="time-wrapper"><span class="time">' + time + '</span></span></div><div class="desc"><div class="section full-height"><input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" /><label for="modal-btn">Details<i class="uil uil-expand-arrows"></i></label><div class="modal"><div class="modal-wrap"><p id="p-wrap">' + detail + '</p></div></div></div></div></li>';
+  document.getElementById("timeline").innerHTML = DOMNode + document.getElementById("timeline").innerHTML;
+  }
+  
 }
 
 
 function test(){
+
+//-----------------------------------
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+//----------------------------------
+
+  writedata(dateTime);
   console.log("Added");
-  addNode(document.getElementById("log").value, "3:25 Pm", document.getElementById("aname").value, document.getElementById("textlog").value);
+  closeForm();
+  addNode(document.getElementById("log").value, dateTime, document.getElementById("aname").value, document.getElementById("textlog").value);
 }
