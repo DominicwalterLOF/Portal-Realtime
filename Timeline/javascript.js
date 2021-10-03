@@ -49,7 +49,7 @@ var dateTime = date+' '+time;
     Tagline: log,
     Log_info:textlog
 
-  });read();
+  });location.reload();
 }
 
 
