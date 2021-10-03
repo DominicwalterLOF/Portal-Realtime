@@ -88,3 +88,14 @@ function writedata2 (){
   });
 }
 
+//-----------------------------------------------------------
+
+// Dominic -- Firebase -- Writing data
+
+//-----------------------------------------------------------
+
+function dataUpdate(key, value) {
+
+  firebase.database().ref(key).set(value);
+
+}
