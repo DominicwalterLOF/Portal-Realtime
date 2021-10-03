@@ -99,3 +99,19 @@ function dataUpdate(key, value) {
   firebase.database().ref(key).set(value);
 
 }
+
+//-----------------------------------------------------------
+
+// Adding Dynamic Nodes -------------------------------------
+
+function addNode(log, time, author, detail){
+
+  DOMNode = '<li><div class="direction-r"><div class="flag-wrapper"><span class="flag" id="flag">' + log + '</span><span class="time-wrapper"><span class="time">' + author + '</span><span class="time-wrapper"><span class="time">' + time + '</span></span></div><div class="desc"><div class="section full-height"><input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" /><label for="modal-btn">Details<i class="uil uil-expand-arrows"></i></label><div class="modal"><div class="modal-wrap"><p id="p-wrap">' + detail + '</p></div></div></div></div></li>';
+  document.getElementById("timeline").innerHTML = DOMNode + document.getElementById("timeline").innerHTML;
+}
+
+
+function test(){
+  console.log("Added");
+  addNode(document.getElementById("log").value, "3:25 Pm", document.getElementById("aname").value, document.getElementById("textlog").value);
+}
