@@ -47,8 +47,8 @@ h2,h1 {
   
   font-size: 3rem;
   color: #fff;
-  position: fixed;
-  left: 30%;
+  position:fixed;
+  left: 15%;
   transform: translateX(-50%);
   white-space: nowrap;
   background: linear-gradient(
@@ -60,10 +60,6 @@ h2,h1 {
   -webkit-text-fill-color: transparent;
   float: left;
 }
-
-
-
-
 
 
 
