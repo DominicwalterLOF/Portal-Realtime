@@ -36,7 +36,8 @@ function writedata (dateTime){
   var log=document.getElementById("log").value;
   var textlog=document.getElementById("textlog").value;
 
-  const dp=firebase.database().ref("NASA_"+ dateTime).set({
+  const dp=firebase.database().ref("NASA").set({
+    date_time:dateTime,
     Mission_name:mname,
     author:aname,
     Tagline: log,
@@ -67,11 +68,17 @@ function readData(key) {
   urlRef.on("value", function (snapshot) {
 
   return snapshot.val();
-  console.log();
+  
 
   });
 }
 
+//-----------------------------------------------------------
+function read(){
+  firebase.database().ref('NASA').on('value',(snap)=>{
+  console.log(snap.val());
+})
+}
 //-----------------------------------------------------------
 
 // Adding Dynamic Nodes -------------------------------------
@@ -104,5 +111,6 @@ var dateTime = date+' '+time;
   writedata(dateTime);
   console.log("Added");
   closeForm();
+  read();
   addNode(document.getElementById("log").value, dateTime, document.getElementById("aname").value, document.getElementById("textlog").value);
 }
