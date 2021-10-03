@@ -49,7 +49,7 @@ function update() {
     if(data != dataBuffer){
 
     }
-    
+
     else{
 
     }
@@ -70,6 +70,7 @@ function readData(key) {
 function writeData(key, value) {
 
     firebase.database().ref(key).set(value);
+    return 1;
 
 }
 

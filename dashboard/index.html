@@ -420,16 +420,22 @@
 
         var provider1 = new firebase.auth.GoogleAuthProvider();
 
+        var credential;
+
         function googleSignInPopup() {
 
             var provider1 = new firebase.auth.GoogleAuthProvider();
             console.log("here");
             firebase.auth().signInWithPopup(provider1).then((result) => {
-                var credential = result.credential;
+                credential = result.credential;
+                console.log(credential.photoURL);
                 console.log("suc");
                 var token = credential.accessToken;
                 var user = result.user;
                 console.log("loggedin");
+
+
+
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
