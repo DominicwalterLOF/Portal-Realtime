@@ -44,13 +44,13 @@ li{
 }
 
 h2,h1 {
+  float: left;
   font-size: 3rem;
   color: #fff;
   position: absolute;
   left: 20%;
   transform: translateX(-50%);
   white-space: nowrap;
-
   background: linear-gradient(
     to right, 
     hsl(98 100% 62%), 
@@ -550,7 +550,7 @@ color: #1f2029;
   line-height: 30px;
   font-size: 18px;
   font-family: 'unicons';
-  content: '\eac6'; 
+  content: 'ⓧ';
   box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
   transition: all 200ms linear;
   opacity: 0;
