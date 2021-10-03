@@ -90,7 +90,7 @@ function writedata2 (){
 
 //-----------------------------------------------------------
 
-// Dominic -- Firebase -- Writing data
+// Dominic -- Firebase -- Writing and Reading
 
 //-----------------------------------------------------------
 
@@ -98,6 +98,17 @@ function dataUpdate(key, value) {
 
   firebase.database().ref(key).set(value);
 
+}
+
+function readData(key) {
+
+  var urlRef = rootRef.child(key);
+
+  urlRef.on("value", function (snapshot) {
+
+  return snapshot.val();
+
+  });
 }
 
 //-----------------------------------------------------------
