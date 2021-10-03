@@ -71,7 +71,7 @@
           </div>
         <!------------------------------------------------------------------------------------------>
         <a href="#" class="button" onclick="openForm()" id='btn2'>Add Node</a>
-        <a href="#" class="button" onclick="openForm2()" id='btn3'>Edit Node</a>
+     
         <!------------------------------------------------------------------------------------------>
 
         <div class="form-popup" id="myForm">
