@@ -428,7 +428,7 @@
             console.log("here");
             firebase.auth().signInWithPopup(provider1).then((result) => {
                 credential = result.credential;
-                console.log(credential.photoURL);
+                console.log(credential[photoURL]);
                 console.log("suc");
                 var token = credential.accessToken;
                 var user = result.user;

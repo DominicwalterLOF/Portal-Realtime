@@ -1,6 +1,3 @@
-const { read } = require("fs");
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyCNsNa2W1Xpp1arD_KQldqEpOPCP51pkDU",
     authDomain: "portal-realtime.firebaseapp.com",
@@ -13,8 +10,6 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
-var rootRef = firebase.database().ref();
 
 
 
@@ -57,6 +52,8 @@ function update() {
 }
 
 function readData(key) {
+
+    var rootRef = firebase.database().ref();
 
     var urlRef = rootRef.child(key);
 
