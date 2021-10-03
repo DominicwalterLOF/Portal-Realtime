@@ -1,3 +1,4 @@
+const { read } = require("fs");
 
 
 const firebaseConfig = {
@@ -12,6 +13,11 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+var rootRef = firebase.database().ref();
+
+
+
 
 function addnode(info) {
 
@@ -32,18 +38,39 @@ function earth() {
 
 }
 
+var dataBuffer = "";
+
+var missionID;
+
 function update() {
+
+    var data = readData(missionID);
+
+    if(data != dataBuffer){
+
+    }
+    
+    else{
+
+    }
 
 }
 
 function readData(key) {
 
-    return value
+    var urlRef = rootRef.child(key);
+
+    urlRef.on("value", function (snapshot) {
+
+    return snapshot.val();
+
+    });
 }
 
 function writeData(key, value) {
+
     firebase.database().ref(key).set(value);
 
 }
 
-setInterval(update,2000);
+setInterval(update, 5000);
