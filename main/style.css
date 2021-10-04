@@ -2,6 +2,7 @@ html {
     box-sizing: border-box;
   }
   
+
   *,
   *:before,
   *:after {
@@ -43,6 +44,7 @@ h1{
     min-height: 11.25rem;
     padding: 1rem;
   }
+  
   
   .image-grid {
     -webkit-transform: rotateX(45deg) rotateZ(45deg);
