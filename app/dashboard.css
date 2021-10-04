@@ -79,14 +79,14 @@ button, a {
   display: flex;
   height: 100%;
   overflow: hidden;
-  padding: 16px 24px 24px 0;
+ 
 }
 .app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 16px 24px;
+
   position: relative;
 }
 .app-header-left, .app-header-right {
