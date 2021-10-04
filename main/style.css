@@ -40,7 +40,7 @@ h1{
   }
   
   .grid-block {
-    width: 50%;
+    width: 30%;
     min-height: 11.25rem;
     padding: 1rem;
   }
@@ -84,9 +84,12 @@ h1{
   
   .tile-img {
     display: block;
-    width: 100%;
+    position: relative;
+    width: 140%;
     height: auto;
     opacity: 1;
+    padding: 0px;
+  
     -webkit-transition-property: opacity;
     transition-property: opacity;
     -webkit-transition-duration: 0.125s;
@@ -94,6 +97,9 @@ h1{
     -webkit-transition-timing-function: ease-in;
     transition-timing-function: ease-in;
   }
+
+
+  
   .tile-link:hover .tile-img1 {
     box-shadow: 5px 5px rgba(244, 170, 200, 0.4),
       10px 10px rgba(244, 170, 200, 0.3), 15px 15px rgba(244, 170, 200, 0.2),
