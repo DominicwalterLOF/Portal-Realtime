@@ -640,6 +640,7 @@ button, a {
   padding-top: 16px;
   position: relative;
 }
+
 .project-box-footer:after {
   content: "";
   position: absolute;
