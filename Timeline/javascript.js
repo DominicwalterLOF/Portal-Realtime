@@ -68,6 +68,8 @@ function dataUpdate(key, value) {
 }
 
 function readData(key) {
+  
+  var rootRef = firebase.database().ref();
 
   var urlRef = rootRef.child(key);
 
