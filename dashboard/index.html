@@ -6,6 +6,7 @@
     <title>Lunarty Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="./dashboard.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 </head>
 
@@ -42,10 +43,10 @@
                         <line x1="5" y1="12" x2="19" y2="12" />
                     </svg>
                 </button>
-                
+
                 <button class="profile-btn">
-                    <img src="" />
-                    <span>Dominic Walter</span>
+                    <img id = "userimage" src="" />
+                    <span id = "usernamespan">Guest</span>
                 </button>
             </div>
             <button class="messages-btn">
@@ -68,17 +69,18 @@
                     </svg>
                 </a>
                 <a href="https://dominicwalterlof.github.io/Portal-Realtime/Timeline/" class="app-sidebar-link">
-                                       <svg class="link-icon" xmlns="https://dominicwalterlof.github.io/Portal-Realtime/Timeline/" width="24" height="24" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        class="feather feather-pie-chart" viewBox="0 0 24 24">
+                    <svg class="link-icon" xmlns="https://dominicwalterlof.github.io/Portal-Realtime/Timeline/"
+                        width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
                         <a href="https://dominicwalterlof.github.io/Portal-Realtime/Timeline/">
-                            
-                        <defs />
-                        <path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
-                    </a>
+
+                            <defs />
+                            <path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
+                        </a>
                     </svg>
-                  
-                </a><!---
+
+                </a>
+                <!---
                 <a href="" class="app-sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -89,10 +91,11 @@
                         <line x1="3" y1="10" x2="21" y2="10" />
                     </svg>
                 </a>--->
-                <a href="" class="app-sidebar-link" onclick="sig();"><!------------------------------------------------------------------------------------------------------>
-                    <svg class="link-icon" xmlns="#" width="24" height="24" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        class="feather feather-settings" viewBox="0 0 24 24">
+                <a href="" class="app-sidebar-link" onclick="sig();">
+                    <!------------------------------------------------------------------------------------------------------>
+                    <svg class="link-icon" xmlns="#" width="24" height="24" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-settings"
+                        viewBox="0 0 24 24">
                         <defs />
                         <circle cx="12" cy="12" r="3" />
                         <path
@@ -148,8 +151,9 @@
                 <div class="project-boxes jsGridView" id="loglogs">
 
 
-                    
-                    <div class="project-box-wrapper" onclick="location.replace('https://dominicwalterlof.github.io/Portal-Realtime/archive/static');">
+
+                    <div class="project-box-wrapper"
+                        onclick="location.replace('https://dominicwalterlof.github.io/Portal-Realtime/archive/static');">
                         <div class="project-box" style="background-color: #748cab;">
                             <div class="project-box-header">
                                 <span>July 16, 1969</span>
@@ -166,7 +170,7 @@
                                     </button>
                                 </div>
                             </div>
-                            
+
                             <div class="project-box-content-header">
                                 <p class="box-content-header">Apollo 11</p>
                                 <p class="box-content-subheader">Previous lunar mission </p>
@@ -200,7 +204,8 @@
                         </div>
                     </div>
 
-                    <div class="project-box-wrapper" onclick="location.replace('https://dominicwalterlof.github.io/Portal-Realtime/Demotimeline/');">
+                    <div class="project-box-wrapper"
+                        onclick="location.replace('https://dominicwalterlof.github.io/Portal-Realtime/Demotimeline/');">
                         <div class="project-box" style="background-color: #748cab;">
                             <div class="project-box-header">
                                 <span>October 10, 2021</span>
@@ -252,7 +257,7 @@
                     </div>
 
 
-                  
+
                 </div>
             </div>
             <div class="messages-section">
@@ -270,8 +275,7 @@
                 </div>
                 <div class="messages">
                     <div class="message-box">
-                        <img src="https://icon-library.com/images/icon-earth/icon-earth-14.jpg"
-                            alt="profile image">
+                        <img src="https://icon-library.com/images/icon-earth/icon-earth-14.jpg" alt="profile image">
                         <div class="message-content">
                             <div class="message-header">
                                 <div class="name">3:56 p.m.</div>
@@ -288,7 +292,8 @@
                                 </div>
                             </div>
                             <p class="message-line">
-                                Spacecraft passes midway point of journey homeward, 101,000 nautical miles from splashdown .
+                                Spacecraft passes midway point of journey homeward, 101,000 nautical miles from
+                                splashdown .
                             </p>
                             <p class="message-line time">
                                 Dec, 11
@@ -296,8 +301,7 @@
                         </div>
                     </div>
                     <div class="message-box">
-                        <img src="https://icon-library.com/images/icon-earth/icon-earth-14.jpg"
-                            alt="profile image">
+                        <img src="https://icon-library.com/images/icon-earth/icon-earth-14.jpg" alt="profile image">
                         <div class="message-content">
                             <div class="message-header">
                                 <div class="name">3:55 p.m.</div>
@@ -314,7 +318,8 @@
                                 </div>
                             </div>
                             <p class="message-line">
-                                The command module arrives on board the Hornet after traveling 952,700 nautical miles since July 16.
+                                The command module arrives on board the Hornet after traveling 952,700 nautical miles
+                                since July 16.
                             </p>
                             <p class="message-line time">
                                 Dec, 12
@@ -373,10 +378,55 @@
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
+    </div>
+
+
+    <div class="LoginOverlay">
+        <div class="bg-box">
+            <div class="box">
+                <div class="tab">
+                    <button id="loginbtn" onclick="myfunction('login')" class="tab-btn active">Login</button>
+                    <button id="registerbtn" onclick="myfunction('register')" class="tab-btn">Register</button>
+                </div>
+                <div class="form-controler" id="login">
+                    <div class="main-atas">
+                        <i class="icon fas fa-user-shield"></i>
+                        <h1 class="display">Login Here</h1>
+                        <h6 class="display">Click login to continue as guest without using account</h6>
+                    </div>
+                    <form action="">
+                        <input type="text" placeholder="Email/Phone number">
+                        <input type="text" placeholder="Password">
+                        <button type = "submit" id="login-btn" onclick="rem();" style="display: visible">Login</button>
+                    </form>
+                    <a class="link" href="#">Forget password</a>
+                    <a class="link" href="#">Don't have account</a>
+                </div>
+                <div class="form-controler" id="register">
+                    <div class="main-atas register">
+                        <i class="icon fas fa-user-plus"></i>
+                        <h1 class="display">Register Here</h1>
+                        <h6 class="display">Creating new account is disabled till december, continue without account by clicking register</h6>
+                    </div>
+                    <form action="">
+                        <input type="text" placeholder="Email/Phone number">
+                        <input type="text" placeholder="Enter new password">
+                        <input type="text" placeholder="Confirm password">
+                        <button type = "submit" onclick="rem();" id="login-btn" style="display: visible">Register</button>
+                        <div class="tengahan">
+                            <input type="checkbox" id="ch"><label for="ch" class="label-text">I accept the privacy
+                                policy</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     <script src="./dashboard.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -385,8 +435,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script>
-        
- var firebaseConfig = {
+
+        function rem(){
+
+            document.getElementsByClassName("LoginOverlay")[0].style.display = "none";
+        }
+
+        var firebaseConfig = {
             apiKey: "AIzaSyCNsNa2W1Xpp1arD_KQldqEpOPCP51pkDU",
             authDomain: "portal-realtime.firebaseapp.com",
             projectId: "portal-realtime",
