@@ -288,15 +288,7 @@ body {
   }
   
   }
-  
-  @media screen and (min-width: 400px) {
-  
-  .direction-l .desc,
-  .direction-r .desc {
-      margin: 1em 4em 0 4em;
-  }
-  
-  }
+ 
 
   @keyframes swing {
     0% {
@@ -806,9 +798,10 @@ body {
 
 .audio-player {
   height: 50px;
-  width: 350px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 100%;
   background: #444;
-  box-shadow: 0 0 20px 0 #000a;
   font-family: arial;
   color: white;
   font-size: 0.75em;
@@ -816,14 +809,14 @@ body {
   display: grid;
   grid-template-rows: 6px auto;
 }
-.audio-player .timeline {
+.audio-player .timeline1 {
   background: white;
   width: 100%;
   position: relative;
   cursor: pointer;
   box-shadow: 0 2px 10px 0 #0008;
 }
-.audio-player .timeline .progress {
+.audio-player .timeline1 .progress {
   background: coral;
   width: 0%;
   height: 100%;
@@ -918,3 +911,16 @@ body {
   left: -123px;
   width: 120px;
 }
+
+.time1{
+  background: #444;
+}
+ 
+@media screen and (min-width: 400px ) and ( max-width: 660px) {
+  
+  .direction-l .desc,
+  .direction-r .desc {
+      margin: 1em 4em 0 4em;
+  }
+  
+  }

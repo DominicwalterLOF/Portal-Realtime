@@ -37,9 +37,9 @@ audio.addEventListener(
 );
 
 //click on timeline to skip around
-const timeline = audioPlayer.querySelector(".timeline");
-timeline.addEventListener("click", e => {
-    const timelineWidth = window.getComputedStyle(timeline).width;
+const timeline1 = audioPlayer.querySelector(".timeline1");
+timeline1.addEventListener("click", e => {
+    const timelineWidth = window.getComputedStyle(timeline1).width;
     const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
     audio.currentTime = timeToSeek;
 }, false);
