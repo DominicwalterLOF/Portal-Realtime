@@ -62,14 +62,14 @@ body {
   
   .direction-l {
     position: relative;
-    width: 300px;
+    width: 296px;
     float: left;
     text-align: right;
   }
   
   .direction-r {
     position: relative;
-    width: 300px;
+    width: 296px;
     float: right;
   }
   
@@ -779,13 +779,15 @@ body {
   width:100%;
   height: auto;
   border-radius: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .cardimg {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   border-radius: 20px;
-  
+  margin-top: 30px;
 }
 
 .cardimg:hover {
