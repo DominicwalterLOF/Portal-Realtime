@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
 $("#login-btn").click(function(){
   $(this).addClass("btn-shadow");
 })
@@ -71,4 +72,31 @@ function myfunction(isinya){
     $("#registerbtn").removeClass("active"); $("#loginbtn").addClass("active");
     $("#register").css({"display":"none"}); $("#login").css({"display":"block"});
   }
+}
+
+
+function read(){  
+
+  firebase.database().ref('NASA/').on('value',(snap)=>{
+  display(snap.val());;})
+  }
+
+  function display(value){
+    l=[];
+    console.log(value);
+    console.log("printingggg");
+    for (const item in value){
+      var innerdata=value[item];
+        l=[];
+        for (const items2 in innerdata){
+          l.push(innerdata[items2])
+         
+        
+  
+      }  
+      
+  
+      addNode(l[2], l[4], l[3], l[0]);
+    }
+
 }
