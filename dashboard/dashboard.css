@@ -963,7 +963,7 @@ input[type=text]:focus{
 .icon{
   font-size: 7.5rem;
 }
-button[type=submit]{
+.button1{
   background-color: transparent;
   outline: none;
   border: none;
@@ -978,7 +978,7 @@ button[type=submit]{
   border: 1px solid var(--color);
   transition: .3s;
 }
-button[type=submit]:hover{background-color: var(--color);}
+.button1 :hover{background-color: var(--color);}
 .btn-shadow{box-shadow: 0px 0px 7px .1px white}
 .link{
   text-align: left;
