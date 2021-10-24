@@ -48,14 +48,13 @@ function push1(DataValue, mode) {
 function writedata() {
 
     var today = new Date();
-    const d = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var dateTime = date + ' ' + time;
 
     var log = document.getElementById("log").value;
 
-    const dp = firebase.database().ref("networks/" + Netpath + "/stream/log" + d.getTime()).set({
+    const dp = firebase.database().ref("networks/" + Netpath + "/stream/" + today.getTime()).set({
         date_time: dateTime,
         Mission_name: mission,
         author: user,
