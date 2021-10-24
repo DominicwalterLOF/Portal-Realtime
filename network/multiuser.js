@@ -1,5 +1,6 @@
 var mission = "";
-var user = "";
+var user = "Dominic";
+var Netpath = "";
 
 
 
@@ -18,9 +19,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 function read(mode) {
-
-
-    firebase.database().ref('NASA/').on('value', (snap) => {
+    consoleInfo("reading", "---------------------------------------------")
+    firebase.database().ref("networks/" + Netpath + "/stream").on('value', (snap) => {
         push1(snap.val(), mode);;
     })
 }
@@ -32,7 +32,7 @@ function push1(DataValue, mode) {
             console.log(DataValue);
             break;
         case 2:
-            return DataValue;
+            return getFromRTDB(DataValue);
         case 3:
             return 0;
         default:
@@ -42,47 +42,83 @@ function push1(DataValue, mode) {
     }
 }
 
-function writedata (){
+function writedata() {
     //-----------------------------------
     var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date+' '+time;
+    var dateTime = date + ' ' + time;
     //----------------------------------
-    
-      var aname=document.getElementById("aname").value;
-      var log=document.getElementById("log").value;
-      var textlog=document.getElementById("textlog").value;
-    
-      const dp=firebase.database().ref("NASA/log"+dateTime).set({
-        date_time:dateTime,
+
+    var aname = document.getElementById("aname").value;
+    var log = document.getElementById("log").value;
+    var textlog = document.getElementById("textlog").value;
+
+    const dp = firebase.database().ref("NASA/log" + dateTime).set({
+        date_time: dateTime,
         Mission_name: mission,
         author: "Dominic",
         Tagline: log,
-        Log_info:textlog
-    
-      });location.reload();
+        Log_info: textlog
+
+    }); location.reload();
+}
+
+
+function consoleLine(info, text, data) {
+    document.getElementById("mm").innerHTML += "<p>> [<span>" + info + "</span>]: " + text + " <i> " + data + " </i></p>";
+}
+
+function consoleInfo(info, text) {
+    document.getElementById("mm").innerHTML += "<p>> <span> " + info + "</span>: " + text + " </p>";
+
+}
+
+function consoleLine1(info, text, data) {
+    document.getElementById("mm1").innerHTML += "<p>> [<span>" + info + "</span>]: " + text + " <i> " + data + " </i></p>";
+}
+
+function consoleInfo1(info, text) {
+    document.getElementById("mm1").innerHTML += "<p>> <span> " + info + "</span>: " + text + " </p>";
+
+}
+
+
+
+
+function updateConsole() {
+
+}
+
+
+function readConsole(){
+    t = document.getElementById("log").value;
+    consoleInfo(user,t);
+    consoleInfo1(user,t);
+    var txt = t.split("[");
+    if (txt[0] == "connect"){
+        txt = txt[1].split("]");
+        Netpath = txt[0];
+        console.log(Netpath);
+        read(2);
     }
-
-
-function consoleLine(info, text, data){
-    document.getElementById("mm").innerHTML += "<p>> <span>" + info + "</span>:" + text + "<i>" + data + "</i></p>";
-}
-
-function consoleInfo(info, text){
-    document.getElementById("mm").innerHTML += "<p>> <span>" + info + "</span>:" + text + "</p>";
-
-}
-
-    
-
-function updateConsole(){
-
+    document.getElementById("log").value = "";
 }
 
 
-function getFromRTDB(){
 
+
+function getFromRTDB(data) {
+    consoleInfo("Client","Connection successful");
+    for (const item in data) {
+        var innerdata = data[item];
+        l = [];
+        for (const items2 in innerdata) {
+            l.push(innerdata[items2])
+
+        }
+        consoleLine(l[4], l[3], l[0]);
+    }
 }
 
 var str = document.getElementById('mm').innerHTML.toString();
@@ -96,22 +132,18 @@ setTimeout(function () {
         if (i == str.length) {
             clearInterval(se);
             document.getElementById('mm').innerHTML = str;
-        }
+        }; 
     }, 10);
 }, 0);
 
-function new1() {
-    document.getElementById("mm").innerHTML += '<p>> <span>Connected</span>: Listening from main stream</p>';
-}
 
-setInterval(new1, 5000);
 
 pageScroll();
 
 var div11 = document.getElementById("mm");
 function pageScroll() {
     $('#mm').scrollTop($('#mm')[0].scrollHeight);
-    scrolldelay = setTimeout(pageScroll, 10);
+    scrolldelay = setTimeout(pageScroll, 10000);
 }
 
 
@@ -270,3 +302,4 @@ if (ww >= 768) {
         resizeHeight: true
     });
 }
+
