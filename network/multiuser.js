@@ -14,7 +14,7 @@ setTimeout(function() {
 },0);
 
 function new1(){
-    document.getElementById("mm").innerHTML += '<p>> <span>SOME PAGES ON THIS SERVER THAT YOU DO HAVE PERMISSION TO ACCESS</span>: [<a href="/">Home Page</a>, <a href="/">About Us</a>, <a href="/">Contact Us</a>, <a href="/">Blog</a>...]</p>';
+    document.getElementById("mm").innerHTML += '<p>> <span>Connected</span>: Listening from main stream</p>';
 }
 
 setInterval(new1, 5000);
