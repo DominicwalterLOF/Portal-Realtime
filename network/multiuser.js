@@ -32,9 +32,9 @@ function push1(DataValue, mode) {
             console.log(DataValue);
             break;
         case 2:
-            break;
+            return DataValue;
         case 3:
-            break;
+            return 0;
         default:
             console.log("Error : invalid push mode");
             return "invalid push mode";
@@ -66,11 +66,22 @@ function writedata (){
 
 
 function consoleLine(info, text, data){
+    document.getElementById("mm").innerHTML += "<p>> <span>" + info + "</span>:" + text + "<i>" + data + "</i></p>";
+}
+
+function consoleInfo(info, text){
+    document.getElementById("mm").innerHTML += "<p>> <span>" + info + "</span>:" + text + "</p>";
 
 }
+
     
 
 function updateConsole(){
+
+}
+
+
+function getFromRTDB(){
 
 }
 
