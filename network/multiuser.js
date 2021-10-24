@@ -1,6 +1,7 @@
-var mission = "";
+var mission = "Apollo 11";
 var user = "Dominic";
 var Netpath = "";
+var connected = false;
 
 
 
@@ -19,7 +20,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 function read(mode) {
-    consoleInfo("reading", "---------------------------------------------")
+    consoleInfo("reading", "...")
     firebase.database().ref("networks/" + Netpath + "/stream").on('value', (snap) => {
         push1(snap.val(), mode);;
     })
@@ -43,25 +44,22 @@ function push1(DataValue, mode) {
 }
 
 function writedata() {
-    //-----------------------------------
+
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var dateTime = date + ' ' + time;
-    //----------------------------------
 
-    var aname = document.getElementById("aname").value;
     var log = document.getElementById("log").value;
-    var textlog = document.getElementById("textlog").value;
 
-    const dp = firebase.database().ref("NASA/log" + dateTime).set({
+    const dp = firebase.database().ref("networks/" + Netpath + "/stream/log" + dateTime).set({
         date_time: dateTime,
         Mission_name: mission,
-        author: "Dominic",
-        Tagline: log,
-        Log_info: textlog
+        author: user,
+        Tagline: "null",
+        Log_info: log
 
-    }); location.reload();
+    }); reRender();
 }
 
 
@@ -91,25 +89,40 @@ function updateConsole() {
 }
 
 
-function readConsole(){
+
+function readConsole() {
     t = document.getElementById("log").value;
-    consoleInfo(user,t);
-    consoleInfo1(user,t);
-    var txt = t.split("[");
-    if (txt[0] == "connect"){
-        txt = txt[1].split("]");
-        Netpath = txt[0];
-        console.log(Netpath);
-        read(2);
+    if (! connected) {
+        if (t != "") {
+            consoleInfo(user, t);
+            consoleInfo1(user, t);
+            var txt = t.split("[");
+            if (txt[0] == "connect") {
+                txt = txt[1].split("]");
+                Netpath = txt[0];
+                console.log(Netpath);
+                read(2);
+                connected = true;
+            }
+            document.getElementById("log").value = "";
+        }
+    } else {
+        if (t != "") {
+            consoleInfo1(user, t);
+            writedata();
+        }
     }
-    document.getElementById("log").value = "";
+}
+
+
+function reRender(){
+
 }
 
 
 
-
 function getFromRTDB(data) {
-    consoleInfo("Client","Connection successful");
+    consoleInfo("Client", "Connection successful");
     for (const item in data) {
         var innerdata = data[item];
         l = [];
@@ -132,7 +145,7 @@ setTimeout(function () {
         if (i == str.length) {
             clearInterval(se);
             document.getElementById('mm').innerHTML = str;
-        }; 
+        };
     }, 10);
 }, 0);
 
@@ -163,24 +176,23 @@ function pageScroll() {
 
     $.fn.resizable = function fnResizable(options) {
         var opt = {
-            // selector for handle that starts dragging
+
             handleSelector: null,
-            // resize the width
+
             resizeWidth: true,
-            // resize the height
+
             resizeHeight: true,
-            // the side that the width resizing is relative to
+
             resizeWidthFrom: 'right',
-            // the side that the height resizing is relative to
+
             resizeHeightFrom: 'bottom',
-            // hook into start drag operation (event passed)
+
             onDragStart: null,
-            // hook into stop drag operation (event passed)
+
             onDragEnd: null,
-            // hook into each drag operation (event passed)
+
             onDrag: null,
-            // disable touch-action on $handle
-            // prevents browser level actions like forward back gestures
+
             touchActionNone: true
         };
         if (typeof options == "object") opt = $.extend(opt, options);
@@ -223,7 +235,7 @@ function pageScroll() {
                     $(document).bind('touchmove.rsz', opt.dragFunc);
                     $(document).bind('touchend.rsz', stopDragging);
                 }
-                $(document).bind('selectstart.rsz', noop); // disable selection
+                $(document).bind('selectstart.rsz', noop);
             }
 
             function doDrag(e) {
@@ -261,7 +273,6 @@ function pageScroll() {
                 }
                 $(document).unbind('selectstart.rsz', noop);
 
-                // reset changed values
                 $el.css("transition", startTransition);
 
                 if (opt.onDragEnd)
