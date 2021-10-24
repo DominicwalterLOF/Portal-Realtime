@@ -2,7 +2,8 @@ var mission = "Apollo 11";
 var user = "Dominic";
 var Netpath = "";
 var connected = false;
-
+var htm = "";
+var bufferHTM = "";
 
 
 const firebaseConfig = {
@@ -20,13 +21,14 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 function read(mode) {
-    consoleInfo("reading", "...")
+    consoleInfo("[Connected]", "...")
     firebase.database().ref("networks/" + Netpath + "/stream").on('value', (snap) => {
         push1(snap.val(), mode);;
     })
 }
 
 function push1(DataValue, mode) {
+    console.log("Its me making this error");
     switch (mode) {
 
         case 1:
@@ -46,25 +48,26 @@ function push1(DataValue, mode) {
 function writedata() {
 
     var today = new Date();
+    const d = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var dateTime = date + ' ' + time;
 
     var log = document.getElementById("log").value;
 
-    const dp = firebase.database().ref("networks/" + Netpath + "/stream/log" + dateTime).set({
+    const dp = firebase.database().ref("networks/" + Netpath + "/stream/log" + d.getTime()).set({
         date_time: dateTime,
         Mission_name: mission,
         author: user,
         Tagline: "null",
         Log_info: log
 
-    }); reRender();
+    });
 }
 
 
 function consoleLine(info, text, data) {
-    document.getElementById("mm").innerHTML += "<p>> [<span>" + info + "</span>]: " + text + " <i> " + data + " </i></p>";
+    htm += "<p>> [<span>" + info + "</span>]: " + text + " <i> " + data + " </i></p>";
 }
 
 function consoleInfo(info, text) {
@@ -91,8 +94,8 @@ function updateConsole() {
 
 
 function readConsole() {
-    t = document.getElementById("log").value;
-    if (! connected) {
+    var t = document.getElementById("log").value;
+    if (!connected) {
         if (t != "") {
             consoleInfo(user, t);
             consoleInfo1(user, t);
@@ -101,8 +104,10 @@ function readConsole() {
                 txt = txt[1].split("]");
                 Netpath = txt[0];
                 console.log(Netpath);
+                console.log("here12");
                 read(2);
                 connected = true;
+                bufferHTM = document.getElementById("mm").innerHTML;
             }
             document.getElementById("log").value = "";
         }
@@ -110,20 +115,32 @@ function readConsole() {
         if (t != "") {
             consoleInfo1(user, t);
             writedata();
+            console.log("here1");
+            document.getElementById("log").value = "";
         }
     }
 }
 
 
-function reRender(){
-
+function reRender() {
+    document.getElementById("mm").innerHTML = bufferHTM + htm;
+    $('#mm').scrollTop($('#mm')[0].scrollHeight);
 }
 
 
+function sortObject(obj) {
+    return Object.keys(obj).sort().reduce(function (result, key) {
+        result[key] = obj[key];
+        return result;
+    }, {});
+}
 
 function getFromRTDB(data) {
+    console.log(data);
+    console.log(sortObject(data));
     consoleInfo("Client", "Connection successful");
-    for (const item in data) {
+    htm = "";
+    for (const item in sortObject(data)) {
         var innerdata = data[item];
         l = [];
         for (const items2 in innerdata) {
@@ -132,7 +149,10 @@ function getFromRTDB(data) {
         }
         consoleLine(l[4], l[3], l[0]);
     }
+    reRender();
 }
+
+
 
 var str = document.getElementById('mm').innerHTML.toString();
 var i = 0;
@@ -150,14 +170,8 @@ setTimeout(function () {
 }, 0);
 
 
-
-pageScroll();
-
 var div11 = document.getElementById("mm");
-function pageScroll() {
-    $('#mm').scrollTop($('#mm')[0].scrollHeight);
-    scrolldelay = setTimeout(pageScroll, 10000);
-}
+
 
 
 (function ($, undefined) {
@@ -314,3 +328,10 @@ if (ww >= 768) {
     });
 }
 
+var input = document.getElementById("log");
+input.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("submit").click();
+    }
+});

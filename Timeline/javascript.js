@@ -36,13 +36,13 @@ var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var dateTime = date+' '+time;
 //----------------------------------
-
+const d = new Date();
   var mname=document.getElementById("mname").value;
   var aname=document.getElementById("aname").value;
   var log=document.getElementById("log").value;
   var textlog=document.getElementById("textlog").value;
 
-  const dp=firebase.database().ref("NASA/log"+dateTime).set({
+  const dp=firebase.database().ref("NASA/log"+d.getTime()).set({
     date_time:dateTime,
     Mission_name:mname,
     author:aname,
