@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    background-image: linear-gradient(120deg, #0d0039 0%, #000000 100%);
+    background: #060119;
     height: 100vh;
 }
 
@@ -40,10 +40,10 @@ body {
 #mm1 {
     background: rgba(0, 0, 0, 0);
     width: 100%;
-    height: 85%;
+    height: 100%;
     position: relative;
     overflow-y: scroll;
-    transform: tran slateY(-50%);
+    transform: tran slateY(-40%);
     margin: 0 auto;
     padding: 30px 30px 10px;
     box-shadow: 0 0 150px -20px rgba(0, 0, 0, 0.5);
@@ -93,19 +93,19 @@ b {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0); 
   border-radius: 1px;
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: pink; 
+  background: rgba(0, 0, 0, 0); 
   border-radius: 3px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
+  background: #00000000; 
 }
 
 
@@ -163,10 +163,10 @@ body, html {
     flex-shrink: 0;
   }
   .wr-flex_h {
-    background: blue;
+    background: rgb(0, 171, 68);
   }
   .wr-flex_h_general {
-    background: #000;
+    background: rgb(0, 14, 54);
     padding: 15px;
     color: #fff;
   }
@@ -216,9 +216,10 @@ body, html {
     border-style: none;
     background: transparent;
     outline: none;
+    font-family: "Share Tech Mono", monospace;
   }
   
-  button {
+  .button12 {
     padding: 0;
     background: none;
     border: none;
@@ -228,12 +229,9 @@ body, html {
   .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     max-width: 1600px;
-    padding: 0 15px;
-    margin: 0 auto;
   }
-  
+
   @-webkit-keyframes gradient {
     0% {
       background-position: 0 0;
@@ -252,22 +250,21 @@ body, html {
     }
   }
   .webflow-style-input {
-    position: absolute;
+    position: relative;
     display: flex;
-    bottom : 0;
     flex-direction: row;
-    width: 70%;
-    margin-top: 20px;
-    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
     border-radius: 2px;
     padding: 1.4rem 2rem 1.6rem;
-    background: rgb(57, 63, 84);
+    background: rgba(57, 63, 84, 0.8);
   }
   .webflow-style-input:after {
     content: "";
     position: absolute;
     left: 0px;
     right: 0px;
+    font-family: "Share Tech Mono";
     bottom: 0px;
     z-index: 999;
     height: 2px;
@@ -284,11 +281,13 @@ body, html {
     flex-grow: 1;
     color: #BFD2FF;
     font-size: 1.8rem;
+    font-family: "Share Tech Mono";
     line-height: 2.4rem;
     vertical-align: middle;
   }
   .webflow-style-input input::-webkit-input-placeholder {
     color: #7881A1;
+    font-family: "Share Tech Mono";
   }
   
   .webflow-style-input button {

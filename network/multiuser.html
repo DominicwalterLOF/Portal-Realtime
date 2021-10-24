@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./multiuser.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
     <title>Archive</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
 </head>
 
 <body>
@@ -20,19 +24,26 @@
 
                     <div id="mm">
                         <p>> <span>client</span>:<i>Initializing...</i></p>
-                        <p>> <span>client help</span>:<i>use the command "connect['Network key']" to connect client to your Network. For demonstration client will connect to a 
-                            demo network that is open to all, to join an actual network, use command "ccn -r" followed by "connect["network key"]" command
-                        </i></p>
+                        <p>> <span>client help</span>:<i>use the command "connect['Network key']" to connect client to
+                                your Network. For demonstration client will connect to a
+                                demo network that is open to all, to join an actual network, use command "ccn -r"
+                                followed by "connect["network key"]" command
+                            </i></p>
                         <p>> <span>Running autoConnect()</span>: <i>connect[</i>24t2U32<i>]</i></p>
                         <p>> <span>Connection successful</span>: <i>listening 24t2U32</i></p>
                     </div>
 
-                    
 
-                    <div class="webflow-style-input">
-                        <input type="email" placeholder="Stream to Main LOG" style="z-index: 10;"></input>
-                        <button type="submit"><i class="icon ion-android-arrow-forward"></i></button>
-                    </div></div>
+
+                    <div class="container">
+                        <div class="webflow-style-input" style="width: 100%;margin: 0px;">
+                            <input type="text" placeholder="Stream to Main LOG"
+                                style="z-index: 10;width: 100%;" id = "log"></input>
+                            <button class="button12"><i class="icon ion-android-arrow-forward"></i></button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
             <div class="splitter"></div>
@@ -40,29 +51,35 @@
 
 
             <div class="wr-flex" style="width:100%;height:100%">
-                <div class="wr-flex_h">
+                <div class="wr-flex_h" style="background: rgb(0, 57, 138);">
                     User LOG
                 </div>
                 <div class="wr-flex_c" style="height:90%">
 
 
 
-                    <div id="mm1">
+                    <div id="mm1" style="background: rgb(0, 0, 0);">
                         <p>> <span>client</span>:<i>Initializing...</i></p>
-                        <p>> <span>client help</span>:<i>use the command "connect['Network key']" to connect client to your Network. For demonstration client will connect to a 
-                            demo network that is open to all, to join an actual network, use command "ccn -r" followed by "connect["network key"]" command
-                        </i></p>
+                        <p>> <span>client help</span>:<i>use the command "connect['Network key']" to connect client to
+                                your Network. For demonstration client will connect to a
+                                demo network that is open to all, to join an actual network, use command "ccn -r"
+                                followed by "connect["network key"]" command
+                            </i></p>
                         <p>> <span>Running autoConnect()</span>: <i>connect[</i>24t2U32<i>]</i></p>
                         <p>> <span>Connection successful</span>: <i>listening 24t2U32</i></p>
                     </div>
 
-                    <div style="flex-direction: row;"></div>
+
                 </div>
-             
+
             </div>
         </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script>
 
     <script src="multiuser.js"></script>
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
