@@ -376,6 +376,7 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log("changed");
         userdata = user;
         rem();
+        document.getElementById("userphoto").src = userdata.photoURL;
     } else {
 
     }
