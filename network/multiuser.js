@@ -377,6 +377,8 @@ firebase.auth().onAuthStateChanged((user) => {
         userdata = user;
         rem();
         document.getElementById("userphoto").src = userdata.photoURL;
+        document.getElementById("uname").innerHTML = userdata.displayName;
+        user = userdata.email.split("@")[0];
     } else {
 
     }
