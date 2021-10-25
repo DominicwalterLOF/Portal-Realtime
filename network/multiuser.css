@@ -301,3 +301,156 @@ body, html {
     color: #BFD2FF;
   }
 
+
+  .LoginOverlay{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    background: repeating-linear-gradient(
+  45deg,
+  rgba(90, 90, 90, 0.2),
+  rgba(90, 90, 90, 0.2) 10px,
+  rgba(90, 90, 90, 0.3) 10px,
+  rgba(90, 90, 90, 0.374) 20px
+);
+    z-index: 100;
+    font-family: sans-serif;
+    user-select: none;
+  }
+
+  
+.bg-box{
+  content: "";
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+}
+.box{
+  background-color: rgb(0, 0, 0);
+  max-width: 470px;
+  height: 500px;
+  right: 10px;
+  margin-top: 13rem;
+  margin-left: 4rem;
+  box-shadow: 0px 0px 20px .1px rgba(0, 76, 255, 0.8);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%;
+}
+.tab{
+  background-color: transparent;
+  display: flex;
+  margin: auto;
+  width: 90%;
+  height: 50px;
+  padding: 20px;
+}
+
+.main-atas{
+  text-align: center;
+  color: white;
+  margin-top: 1.8rem;
+  margin-bottom: 3rem;
+}
+
+.button2login {
+  position: relative;
+  display: inline-block;
+  padding: 30px 61px;
+  border-radius: 10px;
+  color: #03e9f4;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  margin: 50px;
+  font-family: "Roboto", sans-serif;
+  filter: hue-rotate(0deg);
+  border: 2px solid #d2bdff;
+  transition: all 0.1s linear;
+}
+.button2login:hover {
+  border: 1px solid transparent;
+}
+.button2login:hover span {
+  position: absolute;
+  display: block;
+}
+.button2login:hover span:nth-child(1) {
+  filter: hue-rotate(0deg);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3a86ff);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+.button2login:hover span:nth-child(2) {
+  filter: hue-rotate(60deg);
+  top: -100%;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #3a86ff);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+.button2login:hover span:nth-child(3) {
+  filter: hue-rotate(120deg);
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(270deg, transparent, #3a86ff);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+    height: 3px;
+  }
+  50%, 100% {
+    height: 2px;
+    right: 100%;
+  }
+}
+.button2login:hover span:nth-child(4) {
+  filter: hue-rotate(300deg);
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #3a86ff);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}

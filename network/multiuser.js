@@ -157,17 +157,19 @@ var str = document.getElementById('mm').innerHTML.toString();
 var i = 0;
 document.getElementById('mm').innerHTML = "";
 
-setTimeout(function () {
-    var se = setInterval(function () {
-        i++;
-        document.getElementById('mm').innerHTML = str.slice(0, i) + "|";
-        if (i == str.length) {
-            clearInterval(se);
-            document.getElementById('mm').innerHTML = str;
-        };
-    }, 10);
-}, 0);
+function init() {
+    setTimeout(function () {
+        var se = setInterval(function () {
+            i++;
+            document.getElementById('mm').innerHTML = str.slice(0, i) + "|";
+            if (i == str.length) {
+                clearInterval(se);
+                document.getElementById('mm').innerHTML = str;
+            };
+        }, 10);
+    }, 0);
 
+}
 
 var div11 = document.getElementById("mm");
 
@@ -334,3 +336,76 @@ input.addEventListener("keyup", function (event) {
         document.getElementById("submit").click();
     }
 });
+
+
+$("#login-btn").click(function () {
+    $(this).addClass("btn-shadow");
+})
+$("#login-btn").mouseout(function () {
+    $(this).removeClass("btn-shadow");
+})
+function myfunction(isinya) {
+    if (isinya == "register") {
+        $("#loginbtn").removeClass("active"); $("#registerbtn").addClass("active");
+        $("#login").css({ "display": "none" }); $("#register").css({ "display": "block" });
+    } else {
+        $("#registerbtn").removeClass("active"); $("#loginbtn").addClass("active");
+        $("#register").css({ "display": "none" }); $("#login").css({ "display": "block" });
+    }
+}
+
+
+function rem() {
+
+    document.getElementsByClassName("LoginOverlay")[0].style.display = "none";
+    init();
+}
+
+function sig() {
+    console.log("Started");
+    googleSignInPopup();
+    console.log("Success");
+    
+}
+
+var userdata;
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        console.log(firebase.auth().currentUser);
+        console.log("changed");
+        userdata = user;
+        rem();
+    } else {
+
+    }
+});
+
+var provider1 = new firebase.auth.GoogleAuthProvider();
+
+var credential;
+
+function googleSignInPopup() {
+
+    var provider1 = new firebase.auth.GoogleAuthProvider();
+    console.log("here");
+    firebase.auth().signInWithPopup(provider1).then((result) => {
+        credential = result.credential;
+        console.log(credential[photoURL]);
+        console.log("suc");
+        var token = credential.accessToken;
+        var user = result.user;
+        console.log("loggedin");
+
+
+
+    }).catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        var email = error.email;
+
+        var credential = error.credential;
+
+    });
+}

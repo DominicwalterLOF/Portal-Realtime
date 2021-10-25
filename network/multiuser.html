@@ -12,6 +12,33 @@
 </head>
 
 <body>
+
+
+    <div class="LoginOverlay">
+        <center>
+        <div class="bg-box">
+            <div class="box">
+                <center>
+                    <h1 style="color: white;">
+                        LUNARTY REAL-TIME CONSOLE
+                    </h1>
+                <div class="button2login" onclick="sig();">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Login
+                  </div>
+                  </center>
+            </div>
+        </div>
+
+        <h1 style="position: absolute; color: white; right: 10px; z-index: 110; top: 1px;">Lunarty</h1>
+</center>
+
+    </div>
+
+
     <div class="wr-flex_wr" style="width:100%;">
         <div class="wr-flex_c_general" style="width:100%;height:100%">
             <div class="wr-flex wr-flex_resize">
@@ -37,9 +64,10 @@
 
                     <div class="container">
                         <div class="webflow-style-input" style="width: 100%;margin: 0px;">
-                            <input type="text" placeholder="Stream to Main LOG"
-                                style="z-index: 10;width: 100%;" id = "log"></input>
-                            <button class="button12" id = "submit" onclick="readConsole()"><i class="icon ion-android-arrow-forward"></i></button>
+                            <input type="text" placeholder="Stream to Main LOG" style="z-index: 10;width: 100%;"
+                                id="log"></input>
+                            <button class="button12" id="submit" onclick="readConsole()"><i
+                                    class="icon ion-android-arrow-forward"></i></button>
                         </div>
                     </div>
 
@@ -75,6 +103,12 @@
             </div>
         </div>
     </div>
+
+
+    
+
+
+
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
 
