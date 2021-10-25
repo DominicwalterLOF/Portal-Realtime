@@ -1,5 +1,5 @@
 var mission = "Apollo 11";
-var user = "Dominic";
+var user1 = "Dominic";
 var Netpath = "";
 var connected = false;
 var htm = "";
@@ -57,7 +57,7 @@ function writedata() {
     const dp = firebase.database().ref("networks/" + Netpath + "/stream/" + today.getTime()).set({
         date_time: dateTime,
         Mission_name: mission,
-        author: user,
+        author: user1,
         Tagline: "null",
         Log_info: log
 
@@ -96,8 +96,8 @@ function readConsole() {
     var t = document.getElementById("log").value;
     if (!connected) {
         if (t != "") {
-            consoleInfo(user, t);
-            consoleInfo1(user, t);
+            consoleInfo(user1, t);
+            consoleInfo1(user1, t);
             var txt = t.split("[");
             if (txt[0] == "connect") {
                 txt = txt[1].split("]");
@@ -112,7 +112,7 @@ function readConsole() {
         }
     } else {
         if (t != "") {
-            consoleInfo1(user, t);
+            consoleInfo1(user1, t);
             writedata();
             console.log("here1");
             document.getElementById("log").value = "";
@@ -378,7 +378,7 @@ firebase.auth().onAuthStateChanged((user) => {
         rem();
         document.getElementById("userphoto").src = userdata.photoURL;
         document.getElementById("uname").innerHTML = userdata.displayName;
-        user = userdata.email.split("@")[0];
+        user1 = userdata.email.split("@")[0];
     } else {
 
     }
